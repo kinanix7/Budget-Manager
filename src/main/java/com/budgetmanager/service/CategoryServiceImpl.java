@@ -45,13 +45,16 @@ public class CategoryServiceImpl {
                 .orElseThrow(() -> new RuntimeException("cat not found"));
     }
 
-//    public CategoryDTO updateCategory(Long id, CategoryDTO categoryDTO) {
-//        return categoryRepository.findById(id).map(cat -> {
-//           cat.setName(categoryDTO.getName());
-//            cat.setTransactions(categoryDTO.ge());
-//            return userMapper.userToUserDTO(userRepository.save(user));
-//        }).orElseThrow(() -> new RuntimeException("User not found"));
-//    }
+    public CategoryDTO updateCategory(Long id, CategoryDTO categoryDTO) {
+        return categoryRepository.findById(id).map(cat -> {
+           cat.setName(categoryDTO.getName());
+            return categoryMapper.toDto(categoryRepository.save(cat));
+        }).orElseThrow(() -> new RuntimeException("category not found"));
+    }
+
+    public void deleteCategory(Long id) {
+        categoryRepository.deleteById(id);
+    }
 
 
 
