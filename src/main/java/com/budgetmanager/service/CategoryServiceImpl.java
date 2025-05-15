@@ -19,14 +19,12 @@ public class CategoryServiceImpl {
 
     @Autowired
     private CategoryMapper categoryMapper;
-    private final TransactionMapper transactionMapper;
     @Autowired
-    private TransactionRepository transactionRepository;
 
-    public  CategoryServiceImpl(CategoryRepository categoryRepository,
-                                TransactionMapper transactionMapper) {
+
+    public  CategoryServiceImpl(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
-        this.transactionMapper = transactionMapper;
+
     }
 
     @Transactional
