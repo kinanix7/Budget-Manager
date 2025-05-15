@@ -15,9 +15,9 @@ import java.time.LocalDate;
 public class BudgetDTO {
     private Long id;
     private Long categoryId;
-    private String categoryName; // For display purposes
+    private String categoryName;
     private BigDecimal limitAmount;
-    private BigDecimal spentAmount; // To be calculated in the service layer
+    private BigDecimal spentAmount;
     private LocalDate startDate;
     private LocalDate endDate;
 }

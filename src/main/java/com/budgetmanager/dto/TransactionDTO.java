@@ -1,10 +1,7 @@
 package com.budgetmanager.dto;
 
 import com.budgetmanager.model.TransactionType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,6 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
 public class TransactionDTO {
     private Long id;
     private BigDecimal amount;

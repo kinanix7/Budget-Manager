@@ -28,4 +28,5 @@ public class Category {
     @OneToOne(mappedBy = "category" , cascade = CascadeType.ALL , orphanRemoval = true)
     private Budget budget;
 
+
 }

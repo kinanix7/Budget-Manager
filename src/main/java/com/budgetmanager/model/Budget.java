@@ -21,8 +21,9 @@ public class Budget {
 
     @Column(nullable = false)
     private BigDecimal limitAmount;
+    @OneToOne
     @JoinColumn(name = "category_id", nullable = false, unique = true)
-    private Long category;
+    private Category category;
 
     private String startDate;
     private String endDate;
