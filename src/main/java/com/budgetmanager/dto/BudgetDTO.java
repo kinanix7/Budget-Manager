@@ -1,13 +1,12 @@
 package com.budgetmanager.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
+@Getter
+@Setter
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +16,9 @@ public class BudgetDTO {
     private String categoryName;
     private BigDecimal limitAmount;
     private BigDecimal spentAmount;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 }
 
