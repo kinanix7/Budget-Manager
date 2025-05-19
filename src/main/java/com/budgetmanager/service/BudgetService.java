@@ -3,6 +3,7 @@ package com.budgetmanager.service;
 import com.budgetmanager.dto.BudgetDTO;
 import com.budgetmanager.mapper.BudgetMapper;
 import com.budgetmanager.model.Budget;
+import com.budgetmanager.model.Category;
 import com.budgetmanager.repository.BudgetRepository;
 import com.budgetmanager.repository.CategoryRepository;
 import com.budgetmanager.repository.TransactionRepository;
@@ -39,7 +40,19 @@ public BudgetDTO createBudget(BudgetDTO dto) {
                 .collect(Collectors.toList());
     }
 
-
+public BudgetDTO updateBudget(Long id, BudgetDTO dto) {
+    Budget budget = budgetRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Budget not found"));
+    Category category= categoryRepository.findById(dto.getCategoryId())
+            .orElseThrow(() -> new RuntimeException("Category not found"));
+    category.setName(category.getName());
+    budget.setCategory(category);
+    budget.setStartDate(dto.getStartDate());
+    budget.setEndDate(dto.getEndDate());
+    budget.setCategory(categoryRepository.findById(dto.getCategoryId())
+            .orElseThrow(() -> new RuntimeException("Category not found")));
+    return budgetMapper.budgetToBudgetDTO(budgetRepository.save(budget));
+}
 
 
 

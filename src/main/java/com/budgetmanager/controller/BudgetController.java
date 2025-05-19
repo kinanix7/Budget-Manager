@@ -16,19 +16,23 @@ public class BudgetController {
     private final BudgetService budgetService;
 
     @PostMapping
-    public ResponseEntity<BudgetDTO> createBudget(@RequestBody BudgetDTO budgetDTO) {
+    public BudgetDTO createBudget(@RequestBody BudgetDTO budgetDTO) {
         BudgetDTO createdBudget = budgetService.createBudget(budgetDTO);
-        return ResponseEntity.ok(createdBudget);
+        return (createdBudget);
     }
 
     @GetMapping
-    public ResponseEntity<List<BudgetDTO>> getAllBudgets() {
-        return ResponseEntity.ok(budgetService.getAllBudgets());
+    public List<BudgetDTO> getAllBudgets() {
+        return (budgetService.getAllBudgets());
+    }
+    @PutMapping("/{id}")
+    public BudgetDTO updateBudget(@PathVariable Long id, @RequestBody BudgetDTO budgetDTO) {
+        return (budgetService.updateBudget(id, budgetDTO));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBudget(@PathVariable Long id) {
+    public Void deleteBudget(@PathVariable Long id) {
         budgetService.deleteBudget(id);
-        return ResponseEntity.noContent().build();
+        return null;
     }
 }

@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "budgets")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -27,4 +26,44 @@ public class Budget {
 
     private String startDate;
     private String endDate;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public BigDecimal getLimitAmount() {
+        return limitAmount;
+    }
+
+    public void setLimitAmount(BigDecimal limitAmount) {
+        this.limitAmount = limitAmount;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
 }
